@@ -1,26 +1,118 @@
 @import "tailwindcss";
+@plugin "./hero.ts";
+@source "../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Spotify-inspired/Dark Signal Room color scheme */
+  --color-surface-0: oklch(0.12 0.015 250);     /* deep dark blue/gray - page bg */
+  --color-surface-1: oklch(0.16 0.02 250);      /* dark gray-blue - card bg */
+  --color-surface-2: oklch(0.20 0.02 250);      /* lighter elevation - hover/active */
+  --color-surface-3: oklch(0.26 0.02 250);      /* border dividers */
+  
+  --color-text-primary: oklch(0.95 0.005 250);   /* warm off-white text */
+  --color-text-secondary: oklch(0.75 0.01 250);  /* light gray secondary text */
+  --color-text-tertiary: oklch(0.55 0.01 250);   /* muted gray text */
+  
+  --color-accent: oklch(0.72 0.16 160);          /* Vibrant Signal Green */
+  --color-accent-light: oklch(0.72 0.16 160 / 15%); /* Signal Green tint bg */
+  --color-accent-hover: oklch(0.76 0.18 160);    /* Lighter hover green */
+  
+  --color-ink: oklch(0.95 0.005 250);            /* Alias for readability */
+  
+  /* Bind Google fonts */
+  --font-sans: var(--font-sans), sans-serif;
+  --font-display: var(--font-display), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Custom Base Styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    color-scheme: dark;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-surface-0);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  /* Accessible Selection */
+  ::selection {
+    background-color: var(--color-accent);
+    color: oklch(0.12 0.015 250);
+  }
+
+  /* Focus Outline */
+  *:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+  }
+
+  /* Reduced Motion Rules */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Premium Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-0);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-surface-3);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* 3D and Hover Utility Classes */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-4px) rotateX(2deg) rotateY(1deg);
+  box-shadow: 0 15px 35px oklch(0 0 0 / 40%), 0 0 15px var(--color-accent-light);
+}
+
+/* Accent glow animation */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px var(--color-accent-light);
+  }
+  50% {
+    box-shadow: 0 0 25px oklch(0.72 0.16 160 / 30%);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
 }
