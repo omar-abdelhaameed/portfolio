@@ -86,7 +86,7 @@ export const projects: Project[] = [
       "Add end-to-end encryption for direct messages",
       "Set up CI/CD pipeline with automated test execution on pull requests",
     ],
-    githubUrl: null,
+    githubUrl: "https://github.com/omar-abdelhaameed/chat_system",
     liveUrl: null,
     images: [
       {

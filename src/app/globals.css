@@ -2,21 +2,21 @@
 @import "@heroui/react/styles";
 
 @theme {
-  /* Spotify-inspired/Dark Signal Room color scheme */
-  --color-surface-0: oklch(0.12 0.015 250);     /* deep dark blue/gray - page bg */
-  --color-surface-1: oklch(0.16 0.02 250);      /* dark gray-blue - card bg */
-  --color-surface-2: oklch(0.20 0.02 250);      /* lighter elevation - hover/active */
-  --color-surface-3: oklch(0.26 0.02 250);      /* border dividers */
+  /* Electric Indigo / Dark Violet tech theme */
+  --color-surface-0: oklch(0.12 0.01 270);      /* deep dark slate-indigo - page bg */
+  --color-surface-1: oklch(0.15 0.015 270);     /* dark card bg */
+  --color-surface-2: oklch(0.18 0.02 270);      /* lighter elevation - hover/active */
+  --color-surface-3: oklch(0.24 0.02 270);      /* border dividers */
   
-  --color-text-primary: oklch(0.95 0.005 250);   /* warm off-white text */
-  --color-text-secondary: oklch(0.75 0.01 250);  /* light gray secondary text */
-  --color-text-tertiary: oklch(0.55 0.01 250);   /* muted gray text */
+  --color-text-primary: oklch(0.95 0.005 270);   /* warm off-white text */
+  --color-text-secondary: oklch(0.75 0.01 270);  /* light gray secondary text */
+  --color-text-tertiary: oklch(0.55 0.01 270);   /* muted gray text */
   
-  --color-accent: oklch(0.72 0.16 160);          /* Vibrant Signal Green */
-  --color-accent-light: oklch(0.72 0.16 160 / 15%); /* Signal Green tint bg */
-  --color-accent-hover: oklch(0.76 0.18 160);    /* Lighter hover green */
+  --color-accent: oklch(0.62 0.22 285);          /* Vibrant Electric Indigo */
+  --color-accent-light: oklch(0.62 0.22 285 / 15%); /* Indigo tint bg */
+  --color-accent-hover: oklch(0.66 0.23 285);    /* Lighter hover violet */
   
-  --color-ink: oklch(0.95 0.005 250);            /* Alias for readability */
+  --color-ink: oklch(0.95 0.005 270);            /* Alias for readability */
   
   /* Bind Google fonts */
   --font-sans: var(--font-sans), sans-serif;
