@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardBody, Button, Chip } from "@heroui/react";
+import { Card, CardContent, Button, Chip } from "@heroui/react";
 import TechTag from "./TechTag";
 
 export default function Hero() {
@@ -45,7 +45,7 @@ export default function Hero() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
+      transition: { duration: 0.5, ease: "easeOut" as const },
     },
   };
 
@@ -85,13 +85,10 @@ export default function Hero() {
           {/* Availability Badge */}
           <motion.div variants={itemVariants} className="mb-6">
             <Chip
-              variant="flat"
-              color="primary"
-              className="bg-accent-light border border-accent/20 text-accent py-4"
-              startContent={
-                <span className="w-2 h-2 rounded-full bg-accent animate-ping mx-2" />
-              }
+              variant="soft"
+              className="bg-accent-light border border-accent/20 text-accent py-4 flex items-center gap-2"
             >
+              <span className="w-2 h-2 rounded-full bg-accent animate-ping mr-2 inline-block" />
               Available for fixed-price projects &amp; 24–48-hour sprints
             </Chip>
           </motion.div>
@@ -128,7 +125,7 @@ export default function Hero() {
             </Button>
             <Button
               size="lg"
-              variant="bordered"
+              variant="outline"
               className="border-surface-3 text-foreground hover:bg-surface-2 w-full sm:w-auto uppercase tracking-wider text-xs rounded"
               onClick={() => handleScrollClick("#contact")}
             >
@@ -157,7 +154,7 @@ export default function Hero() {
           className="md:col-span-5 flex flex-col items-center justify-center"
         >
           <Card className="w-full max-w-[340px] card-3d border border-surface-3 bg-[#161821] shadow-2xl relative overflow-visible">
-            <CardBody className="p-6 flex flex-col items-center text-center">
+            <CardContent className="p-6 flex flex-col items-center text-center">
               {/* Profile Image container with Signal green glow */}
               <div className="relative w-40 h-40 rounded-full p-1 bg-gradient-to-tr from-accent to-surface-3 mb-6 shadow-xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -196,7 +193,7 @@ export default function Hero() {
                   </span>
                 </div>
               </div>
-            </CardBody>
+            </CardContent>
           </Card>
         </motion.div>
       </div>

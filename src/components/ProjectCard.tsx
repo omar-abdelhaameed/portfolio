@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Card, CardBody, Button } from "@heroui/react";
+import { Card, CardContent, Button } from "@heroui/react";
 import type { Project } from "@/lib/types";
 import TechTag from "./TechTag";
 
@@ -24,7 +24,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       className="w-full"
     >
       <Card className="card-3d border border-surface-3 bg-[#161821] overflow-hidden p-0">
-        <CardBody className="p-6 md:p-8 flex flex-col md:grid md:grid-cols-12 gap-8">
+        <CardContent className="p-6 md:p-8 flex flex-col md:grid md:grid-cols-12 gap-8">
           {/* Visual Thumbnail (Left) */}
           <div className="md:col-span-5 relative w-full aspect-video rounded overflow-hidden bg-surface-0 border border-surface-3 flex flex-col items-center justify-center">
             {firstImage ? (
@@ -96,45 +96,49 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
             {/* Buttons / Actions */}
             <div className="flex flex-wrap items-center gap-3 border-t border-surface-3 pt-4">
-              <Button
-                as={Link}
-                href={`/projects/${project.slug}`}
-                size="sm"
-                className="bg-accent text-black font-semibold hover:bg-accent-hover uppercase tracking-wider text-[10px] rounded"
-              >
-                View Case Study
-              </Button>
+              <Link href={`/projects/${project.slug}`}>
+                <Button
+                  size="sm"
+                  className="bg-accent text-black font-semibold hover:bg-accent-hover uppercase tracking-wider text-[10px] rounded cursor-pointer"
+                >
+                  View Case Study
+                </Button>
+              </Link>
 
               {project.githubUrl && (
-                <Button
-                  as="a"
+                <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  size="sm"
-                  variant="bordered"
-                  className="border-surface-3 text-foreground hover:bg-surface-2 uppercase tracking-wider text-[10px] rounded"
                 >
-                  GitHub
-                </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-surface-3 text-foreground hover:bg-surface-2 uppercase tracking-wider text-[10px] rounded cursor-pointer"
+                  >
+                    GitHub
+                  </Button>
+                </a>
               )}
 
               {project.liveUrl && (
-                <Button
-                  as="a"
+                <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  size="sm"
-                  variant="flat"
-                  className="bg-accent-light border border-accent/30 text-accent hover:bg-accent/25 uppercase tracking-wider text-[10px] rounded"
                 >
-                  Live Demo
-                </Button>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="border-accent/30 text-accent hover:bg-accent-light uppercase tracking-wider text-[10px] rounded cursor-pointer"
+                  >
+                    Live Demo
+                  </Button>
+                </a>
               )}
             </div>
           </div>
-        </CardBody>
+        </CardContent>
       </Card>
     </motion.div>
   );

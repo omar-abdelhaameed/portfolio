@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Card, CardBody } from "@heroui/react";
+import { Card, CardContent } from "@heroui/react";
 import type { ProcessStepData } from "@/lib/types";
 
 interface ProcessStepProps {
@@ -21,7 +21,7 @@ export default function ProcessStep({ step }: ProcessStepProps) {
       className="h-full"
     >
       <Card className="h-full card-3d border border-surface-3 bg-[#161821] p-0 overflow-hidden">
-        <CardBody className="p-6 relative flex flex-col justify-between overflow-hidden">
+        <CardContent className="p-6 relative flex flex-col justify-between overflow-hidden">
           {/* Background oversized decorative number */}
           <span className="absolute -right-4 -bottom-6 font-display font-black text-7xl md:text-8xl text-accent/5 group-hover:text-accent/8 group-hover:-translate-y-1 transition-all select-none duration-300 pointer-events-none">
             {formattedNumber}
@@ -38,7 +38,7 @@ export default function ProcessStep({ step }: ProcessStepProps) {
               {step.description}
             </p>
           </div>
-        </CardBody>
+        </CardContent>
       </Card>
     </motion.div>
   );

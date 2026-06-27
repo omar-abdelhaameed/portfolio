@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
+import { Card, CardContent } from "@heroui/react";
 import { motion } from "framer-motion";
 import type { Service } from "@/lib/types";
 
@@ -22,7 +22,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
       className="h-full"
     >
       <Card className="h-full card-3d border border-surface-3 bg-[#161821] overflow-hidden">
-        <CardBody className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
+        <CardContent className="p-6 md:p-8 flex flex-col md:flex-row gap-6">
           {/* Accent Step Number */}
           <div className="flex-shrink-0 flex items-center md:items-start select-none">
             <span className="font-display font-black text-4xl md:text-5xl text-accent/15 tracking-tight">
@@ -77,7 +77,7 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
               ))}
             </ul>
           </div>
-        </CardBody>
+        </CardContent>
       </Card>
     </motion.div>
   );
